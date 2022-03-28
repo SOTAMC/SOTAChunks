@@ -71,7 +71,9 @@ public class SOTAChunk extends Chunk {
     protected final Int2ObjectOpenHashMap<Block> tickableMap = new Int2ObjectOpenHashMap<>(0);
 
     private long lastChange;
+    @SuppressWarnings("UnstableApiUsage")
     private final CachedPacket chunkCache = new CachedPacket(this::createChunkPacket);
+    @SuppressWarnings("UnstableApiUsage")
     private final CachedPacket lightCache = new CachedPacket(this::createLightPacket);
 
     public SOTAChunk(@NotNull Instance instance, int chunkX, int chunkZ) {
@@ -81,6 +83,7 @@ public class SOTAChunk extends Chunk {
         this.sections = List.of(sectionsTemp);
     }
 
+    @SuppressWarnings("UnstableApiUsage")
     @Override
     public void setBlock(int x, int y, int z, @NotNull Block block) {
         assertLock();
@@ -113,6 +116,7 @@ public class SOTAChunk extends Chunk {
         }
     }
 
+    @SuppressWarnings("UnstableApiUsage")
     @Override
     public void setBiome(int x, int y, int z, @NotNull Biome biome) {
         assertLock();
@@ -134,6 +138,7 @@ public class SOTAChunk extends Chunk {
         return sections.get(section - minSection);
     }
 
+    @SuppressWarnings("UnstableApiUsage")
     @Override
     public void tick(long time) {
         if (tickableMap.isEmpty()) return;
@@ -147,6 +152,7 @@ public class SOTAChunk extends Chunk {
         });
     }
 
+    @SuppressWarnings("UnstableApiUsage")
     @Override
     public @Nullable Block getBlock(int x, int y, int z, @NotNull Condition condition) {
         assertLock();
@@ -168,6 +174,7 @@ public class SOTAChunk extends Chunk {
         return Objects.requireNonNullElse(Block.fromStateId((short) blockStateId), Block.AIR);
     }
 
+    @SuppressWarnings("UnstableApiUsage")
     @Override
     public @NotNull Biome getBiome(int x, int y, int z) {
         assertLock();
@@ -182,12 +189,14 @@ public class SOTAChunk extends Chunk {
         return lastChange;
     }
 
+    @SuppressWarnings("UnstableApiUsage")
     @Override
     public void sendChunk(@NotNull Player player) {
         if (!isLoaded()) return;
         player.sendPacket(chunkCache);
     }
 
+    @SuppressWarnings("UnstableApiUsage")
     @Override
     public void sendChunk() {
         if (!isLoaded()) return;
@@ -208,6 +217,7 @@ public class SOTAChunk extends Chunk {
         this.entries.clear();
     }
 
+    @SuppressWarnings("UnstableApiUsage")
     private synchronized @NotNull ChunkDataPacket createChunkPacket() {
         final NBTCompound heightmapsNBT;
         // TODO: don't hardcode heightmaps
@@ -273,6 +283,7 @@ public class SOTAChunk extends Chunk {
                 skyLights, blockLights);
     }
 
+    @SuppressWarnings("UnstableApiUsage")
     @Override
     public @NotNull ChunkSnapshot updateSnapshot(@NotNull SnapshotUpdater updater) {
         Section[] clonedSections = new Section[sections.size()];
@@ -289,8 +300,10 @@ public class SOTAChunk extends Chunk {
         assert Thread.holdsLock(this) : "Chunk must be locked before access";
     }
 
+    @SuppressWarnings("UnstableApiUsage")
     final class InstanceSnapshotImpl {
 
+        @SuppressWarnings("unused")
         record Instance(AtomicReference<ServerSnapshot> serverRef,
                         DimensionType dimensionType, long worldAge, long time,
                         Map<Long, AtomicReference<ChunkSnapshot>> chunksMap,
