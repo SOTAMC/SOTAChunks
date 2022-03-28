@@ -1,4 +1,4 @@
-package git.sotamc.sotalighting.chunk;
+package git.sotamc.sotachunks.chunk;
 
 import com.extollit.gaming.ai.path.model.ColumnarOcclusionFieldList;
 import it.unimi.dsi.fastutil.ints.Int2ObjectOpenHashMap;
@@ -261,7 +261,6 @@ public class SOTAChunk extends Chunk {
         for (Section section : sections) {
             index++;
             final byte[] skyLight = new byte[2048];
-            System.out.println("Filled Light");
             Arrays.fill(skyLight, (byte) 255);
             final byte[] blockLight = section.getBlockLight();
             //if (skyLight.length != 0) {

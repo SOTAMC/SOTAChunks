@@ -1,6 +1,6 @@
-package git.sotamc.sotalighting.supplier;
+package git.sotamc.sotachunks.supplier;
 
-import git.sotamc.sotalighting.chunk.SOTAChunk;
+import git.sotamc.sotachunks.chunk.SOTAChunk;
 import net.minestom.server.instance.Chunk;
 import net.minestom.server.instance.Instance;
 import net.minestom.server.utils.chunk.ChunkSupplier;

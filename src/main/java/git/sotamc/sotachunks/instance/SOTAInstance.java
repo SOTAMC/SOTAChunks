@@ -1,4 +1,4 @@
-package git.sotamc.sotalighting.instance;
+package git.sotamc.sotachunks.instance;
 
 import net.minestom.server.instance.IChunkLoader;
 import net.minestom.server.instance.InstanceContainer;

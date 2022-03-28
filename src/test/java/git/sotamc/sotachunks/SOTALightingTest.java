@@ -1,6 +1,6 @@
-package git.sotamc.sotalighting;
+package git.sotamc.sotachunks;
 
-import git.sotamc.sotalighting.supplier.SOTAChunkSupplier;
+import git.sotamc.sotachunks.supplier.SOTAChunkSupplier;
 import net.minestom.server.MinecraftServer;
 import net.minestom.server.coordinate.Pos;
 import net.minestom.server.entity.GameMode;

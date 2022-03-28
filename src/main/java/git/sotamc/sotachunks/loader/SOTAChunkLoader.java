@@ -1,4 +1,4 @@
-package git.sotamc.sotalighting.loader;
+package git.sotamc.sotachunks.loader;
 
 import net.minestom.server.MinecraftServer;
 import net.minestom.server.instance.*;
@@ -126,7 +126,9 @@ public class SOTAChunkLoader implements IChunkLoader {
         for (int sectionY = chunk.getMinSection(); sectionY < chunk.getMaxSection(); sectionY++) {
             var section = chunk.getSection(sectionY);
             var chunkSection = fileChunk.getSection((byte) sectionY);
-            section.setSkyLight(chunkSection.getSkyLights());
+            byte[] skylights = new byte[2048];
+            Arrays.fill(skylights, (byte)255);
+            section.setSkyLight(skylights);
             section.setBlockLight(chunkSection.getBlockLights());
         }
         mcaFile.forget(fileChunk);
