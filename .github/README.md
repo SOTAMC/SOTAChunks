@@ -1,4 +1,4 @@
-# STOALighting
+# STOAChunks
 This is a lighting engine for Minestom open source servers. This is an open source API and needs to be compiled with the Minestom source code.
 
 TERMS AND CONDITIONS
